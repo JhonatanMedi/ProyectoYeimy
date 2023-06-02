@@ -60,4 +60,16 @@ public class DefinitionsSteps {
         this.myInfoPage = new MyInfoPage(driver);
         this.myInfoPage.assertUpdatePersonalDetails(nationality, maritalStatus);
     }
+
+    @When("^the user fill out contact details (.*) country (.*) street (.*)$")
+    public void fillOutContactDetails(String streetOne, String country, String streetTwo) {
+        this.myInfoPage = new MyInfoPage(driver);
+        this.myInfoPage.fillOutContactDetails(streetOne, country, streetTwo);
+    }
+
+    @Then("^the user validate save information contact details$")
+    public void validateSave() {
+        this.myInfoPage = new MyInfoPage(driver);
+        this.myInfoPage.validateSave();
+    }
 }

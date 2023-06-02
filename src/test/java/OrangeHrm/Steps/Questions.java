@@ -70,4 +70,9 @@ public class Questions {
         scroll.executeScript("arguments[0].scrollIntoView(true)", texPersonal);
 
     }
+
+    public void validateSave(){
+        String toast = driver.findElement(By.xpath("//div[@id= 'oxd-toaster_1']//*[text()= 'Success' ]")).getText();
+        Assert.assertEquals(toast, "Success");
+    }
 }

@@ -28,4 +28,12 @@ public class ListsPages {
         listsMarital.click();
     }
 
+    public void listCountry(String country){
+        WebElement list = driver.findElement(By.xpath("//div//label[text()='Country']//..//..//div//i"));
+        list.click();
+
+        WebElement listsCountry = list.findElement(By.xpath("//*[text()='"+country+"']"));
+        listsCountry.click();
+    }
+
 }

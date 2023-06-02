@@ -48,4 +48,16 @@ public class DefinitionsSteps {
         this.loginPage = new LoginPage(driver);
         this.loginPage.validateDashboard();
     }
+
+    @Then("^the user validate new employee (.*) (.*)$")
+    public void validateUserNew(String firstName, String lastName) {
+        this.pimPage = new PimPage(driver);
+        this.pimPage.validateUserNew(firstName, lastName);
+    }
+
+    @Then("^the user validate update field (.*) (.*)$")
+    public void validateUpdateField(String nationality, String maritalStatus) {
+        this.myInfoPage = new MyInfoPage(driver);
+        this.myInfoPage.assertUpdatePersonalDetails(nationality, maritalStatus);
+    }
 }

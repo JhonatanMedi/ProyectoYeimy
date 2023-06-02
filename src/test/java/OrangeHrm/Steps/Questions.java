@@ -19,13 +19,14 @@ import org.openqa.selenium.support.ui.ExpectedConditions;
 
 public class Questions {
 
-    @FindBy(how = How.XPATH, using = "//nav[@aria-label= 'Sidepanel']")
+    @FindBy(how = How.XPATH, using = "]")
     private WebElement navOpcion;
     private WebDriver driver;
 
     public Questions(WebDriver driver) {
         this.driver = driver;
     }
+
     public void timeSeconds(int seconds) {
         try {
             Thread.sleep(seconds * 1000);
@@ -35,13 +36,38 @@ public class Questions {
     }
 
     public void validateDashboard() {
-        this.navOpcion.isDisplayed();
+        String dashboard = driver.findElement(By.xpath("//span//h6")).getText();
+        Assert.assertEquals(dashboard, "Dashboard");
+
+
     }
 
-    public void scrollBtnSave() {
-        WebElement btnSave = driver.findElement(By.xpath("//button[text() = ' Save ']"));
+    public void scrollGender() {
+        WebElement btnGender = driver.findElement(By.xpath("//label[text() ='Gender']"));
         JavascriptExecutor scroll = (JavascriptExecutor) driver;
-        scroll.executeScript("arguments[0].scrollIntoView(true)", btnSave);
+        scroll.executeScript("arguments[0].scrollIntoView(true)", btnGender);
+
+    }
+
+    public void assertValidateUser(String firstName, String lastName) {
+        String employee = driver.findElement(By.xpath("//div[@class = 'orangehrm-edit-employee-name']//h6")).getText();
+        Assert.assertEquals(employee, firstName + " " + lastName);
+    }
+
+    public void assertUpdatePersonalDetails(String nationality, String maritalStatus) {
+        String nationalityGet = driver.findElement(By.xpath("//div//label[text()='Nationality']//..//..//div//div//div/div")).getText();
+
+        Assert.assertEquals(nationalityGet, nationality);
+
+        String maritalGet = driver.findElement(By.xpath("//div//label[text()='Marital Status']//..//..//div//div//div/div")).getText();
+
+        Assert.assertEquals(maritalGet, maritalStatus);
+    }
+
+    public void scrollPersonalDetails() {
+        WebElement texPersonal = driver.findElement(By.xpath("//div[@class = 'orangehrm-edit-employee-content']"));
+        JavascriptExecutor scroll = (JavascriptExecutor) driver;
+        scroll.executeScript("arguments[0].scrollIntoView(true)", texPersonal);
 
     }
 }

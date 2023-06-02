@@ -21,7 +21,7 @@ public class ListsPages {
     }
 
     public void listMarital(String maritalStatus){
-            WebElement list = driver.findElement(By.xpath("//div//label[text()='Marital Status']//..//..//div//i"));
+        WebElement list = driver.findElement(By.xpath("//div//label[text()='Marital Status']//..//..//div//i"));
         list.click();
 
         WebElement listsMarital = list.findElement(By.xpath("//*[text()='"+maritalStatus+"']"));

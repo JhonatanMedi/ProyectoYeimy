@@ -3,6 +3,7 @@ package OrangeHrm.Pages;
 import OrangeHrm.Steps.ButtonPage;
 import OrangeHrm.Steps.ListsPages;
 import OrangeHrm.Steps.Questions;
+import org.openqa.selenium.Keys;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
@@ -28,13 +29,18 @@ public class MyInfoPage {
 
     public void updateMyInfo(String middleName, String nationality, String maritalStatus) {
         this.buttonPage.btnMyInfo();
-        this.questions.timeSeconds(2);
-        this.txtMiddleName.clear();
-        this.questions.timeSeconds(1);
+        this.questions.timeSeconds(6);
+        this.txtMiddleName.sendKeys(Keys.CLEAR);
         this.txtMiddleName.sendKeys(middleName);
         this.listsPages.listNationality(nationality);
         this.listsPages.listMarital(maritalStatus);
-        this.questions.scrollBtnSave();
+        this.questions.scrollGender();
         this.buttonPage.btnSave();
+    }
+
+    public void assertUpdatePersonalDetails(String nationality, String maritalStatus) {
+        this.questions.scrollPersonalDetails();
+        this.questions.timeSeconds(1);
+        this.questions.assertUpdatePersonalDetails(nationality, maritalStatus);
     }
 }

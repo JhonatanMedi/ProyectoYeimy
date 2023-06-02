@@ -36,4 +36,9 @@ public class PimPage {
         this.txtLastName.sendKeys(lastName);
         this.buttonPage.btnSave();
     }
+
+    public void validateUserNew(String firstName, String lastName) {
+        this.questions.timeSeconds(6);
+        this.questions.assertValidateUser(firstName, lastName);
+    }
 }

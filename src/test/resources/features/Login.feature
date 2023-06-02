@@ -7,6 +7,7 @@ Feature: Login
   Scenario Outline: login successful
     Given the user open brower
     When the user fill out user <user> password <password>
+    Then the user validate page Dashboard
 
     Examples:
       | user  | password |

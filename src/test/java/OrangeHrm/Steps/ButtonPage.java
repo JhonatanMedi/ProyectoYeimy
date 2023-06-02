@@ -19,6 +19,9 @@ public class ButtonPage {
 
     @FindBy(how = How.XPATH, using = "//button[text() = ' Save ']")
     private WebElement btnSave;
+
+    @FindBy(how = How.XPATH, using = "//a//span[text() = 'My Info']")
+    private WebElement btnMyInfo;
     public ButtonPage(WebDriver driver){
         PageFactory.initElements(driver, this);
     }
@@ -41,5 +44,10 @@ public class ButtonPage {
     public void btnSave(){
         this.btnSave.isDisplayed();
         this.btnSave.click();
+    }
+
+    public void btnMyInfo(){
+        this.btnMyInfo.isDisplayed();
+        this.btnMyInfo.click();
     }
 }

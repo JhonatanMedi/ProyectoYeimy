@@ -1,8 +1,10 @@
 package OrangeHrm.Definitions;
 
+import OrangeHrm.Pages.AdminPage;
 import OrangeHrm.Pages.LoginPage;
 import OrangeHrm.Pages.MyInfoPage;
 import OrangeHrm.Pages.PimPage;
+import OrangeHrm.Steps.Questions;
 import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
 import org.openqa.selenium.WebDriver;
@@ -17,11 +19,18 @@ public class DefinitionsSteps {
     private LoginPage loginPage = new LoginPage(driver);
     private PimPage pimPage = new PimPage(driver);
     private MyInfoPage myInfoPage = new MyInfoPage(driver);
+    private AdminPage adminPage = new AdminPage(driver);
+    private Questions questions = new Questions(driver);
 
     @Given("^the user open brower$")
     public void open_brower() {
         this.conexion = new Conexion();
         this.driver = this.conexion.openBrower();
+    }
+    @Given("^the user close brower$")
+    public void close_brower() {
+        this.questions = new Questions(driver);
+        this.questions.closeBrower();
     }
 
     @When("^the user fill out user (.*) password (.*)$")
@@ -47,6 +56,7 @@ public class DefinitionsSteps {
     public void validateDashboard() {
         this.loginPage = new LoginPage(driver);
         this.loginPage.validateDashboard();
+
     }
 
     @Then("^the user validate new employee (.*) (.*)$")
@@ -71,5 +81,19 @@ public class DefinitionsSteps {
     public void validateSave() {
         this.myInfoPage = new MyInfoPage(driver);
         this.myInfoPage.validateSave();
+    }
+
+    @When("^the user select option admin and new user$")
+    public void optionNewUser() {
+        this.adminPage = new AdminPage(driver);
+        this.adminPage.optionNewUser();
+    }
+
+    @When("^the user fill out (.*) rol (.*) status (.*) user (.*) password (.*) confirm (.*)$")
+    public void addUser(String employee, String rol, String status, String userName, String pass, String confirmPass) {
+        this.adminPage = new AdminPage(driver);
+        this.adminPage.addUser(employee, rol, status,userName,pass, confirmPass);
+        this.conexion = new Conexion();
+
     }
 }

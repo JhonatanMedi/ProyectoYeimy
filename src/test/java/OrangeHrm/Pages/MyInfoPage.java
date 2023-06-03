@@ -1,6 +1,7 @@
 package OrangeHrm.Pages;
 
 import OrangeHrm.Steps.ButtonPage;
+import OrangeHrm.Steps.Conexion;
 import OrangeHrm.Steps.ListsPages;
 import OrangeHrm.Steps.Questions;
 import org.openqa.selenium.Keys;
@@ -16,6 +17,7 @@ public class MyInfoPage {
     private Questions questions;
 
     private ListsPages listsPages;
+
 
     @FindBy(how = How.NAME, using = "middleName")
     private WebElement txtMiddleName;

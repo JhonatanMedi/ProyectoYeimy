@@ -28,11 +28,9 @@ public class Conexion {
 
         driver.manage().timeouts().implicitlyWait(5, TimeUnit.SECONDS);
 
+
         return this.driver;
     }
 
-    @After
-    public void closeBrower() {
-        driver.quit();
-    }
+
 }

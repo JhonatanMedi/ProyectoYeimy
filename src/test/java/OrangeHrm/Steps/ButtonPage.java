@@ -27,6 +27,9 @@ public class ButtonPage {
     @FindBy(how = How.XPATH, using = "//a[text() ='Contact Details']")
     private WebElement btnContactDetails;
 
+    @FindBy(how = How.XPATH, using = "//a//span[text() = 'Admin']")
+    private WebElement btnAdmin;
+
 
     public ButtonPage(WebDriver driver) {
         PageFactory.initElements(driver, this);
@@ -68,5 +71,11 @@ public class ButtonPage {
         this.questions.timeSeconds(1);
         this.btnContactDetails.isEnabled();
         this.btnContactDetails.click();
+    }
+
+    public void btnAdmin(){
+        this.questions.timeSeconds(1);
+        this.btnAdmin.isEnabled();
+        this.btnAdmin.click();
     }
 }

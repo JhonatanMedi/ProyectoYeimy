@@ -1,5 +1,6 @@
 package OrangeHrm.Definitions;
 
+import OrangeHrm.Pages.AdminPage;
 import OrangeHrm.Pages.LoginPage;
 import OrangeHrm.Pages.MyInfoPage;
 import OrangeHrm.Pages.PimPage;
@@ -17,6 +18,7 @@ public class DefinitionsSteps {
     private LoginPage loginPage = new LoginPage(driver);
     private PimPage pimPage = new PimPage(driver);
     private MyInfoPage myInfoPage = new MyInfoPage(driver);
+    private AdminPage adminPage = new AdminPage(driver);
 
     @Given("^the user open brower$")
     public void open_brower() {
@@ -47,18 +49,24 @@ public class DefinitionsSteps {
     public void validateDashboard() {
         this.loginPage = new LoginPage(driver);
         this.loginPage.validateDashboard();
+        this.conexion = new Conexion();
+        this.conexion.closeBrower();
     }
 
     @Then("^the user validate new employee (.*) (.*)$")
     public void validateUserNew(String firstName, String lastName) {
         this.pimPage = new PimPage(driver);
         this.pimPage.validateUserNew(firstName, lastName);
+        this.conexion = new Conexion();
+        this.conexion.closeBrower();
     }
 
     @Then("^the user validate update field (.*) (.*)$")
     public void validateUpdateField(String nationality, String maritalStatus) {
         this.myInfoPage = new MyInfoPage(driver);
         this.myInfoPage.assertUpdatePersonalDetails(nationality, maritalStatus);
+        this.conexion = new Conexion();
+        this.conexion.closeBrower();
     }
 
     @When("^the user fill out contact details (.*) country (.*) street (.*)$")
@@ -71,5 +79,21 @@ public class DefinitionsSteps {
     public void validateSave() {
         this.myInfoPage = new MyInfoPage(driver);
         this.myInfoPage.validateSave();
+        this.conexion = new Conexion();
+        this.conexion.closeBrower();
+    }
+
+    @When("^the user select option admin and new user$")
+    public void optionNewUser() {
+        this.adminPage = new AdminPage(driver);
+        this.adminPage.optionNewUser();
+    }
+
+    @When("^the user fill out (.*) rol (.*) status (.*) user (.*) password (.*) confirm (.*)$")
+    public void addUser(String employee, String rol, String status, String userName, String pass, String confirmPass) {
+        this.adminPage = new AdminPage(driver);
+        this.adminPage.addUser(employee, rol, status,userName,pass, confirmPass);
+        this.conexion = new Conexion();
+        this.conexion.closeBrower();
     }
 }

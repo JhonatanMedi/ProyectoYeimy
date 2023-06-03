@@ -1,6 +1,7 @@
 #Proyecto de pruebas y cargado en Github
 #01/06/2023
 #Jhonatan Medina Blanco
+@Regresion
 Feature: Pim
 
   @HU002

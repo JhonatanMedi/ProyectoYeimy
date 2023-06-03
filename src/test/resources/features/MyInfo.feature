@@ -1,6 +1,7 @@
 #Proyecto de pruebas y cargado en Github
 #01/06/2023
 #Jhonatan Medina Blanco
+@Regresion
 Feature: my informations
 
   @HU003
@@ -15,7 +16,7 @@ Feature: my informations
       | Admin | admin123 | Jhonatan   | Colombian   | Other         |
 
   @HU004
-  Scenario Outline: update personal details
+  Scenario Outline: fill out contact details
     Given the user open brower
     And the user fill out user <user> password <password>
     When the user fill out contact details <streetOne> country <country> street <streetTwo>

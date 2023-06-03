@@ -33,6 +33,12 @@ public class Conexion {
 
     @After
     public void closeBrower() {
-        driver.quit();
+        ChromeOptions option = new ChromeOptions();
+        option.addArguments("--remote-allow-origins=*");
+        WebDriverManager.chromedriver().setup();
+        driver = new ChromeDriver(option);
+        driver.close();
+
+
     }
 }

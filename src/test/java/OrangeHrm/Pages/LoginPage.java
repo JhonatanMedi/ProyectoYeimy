@@ -1,6 +1,7 @@
 package OrangeHrm.Pages;
 
 import OrangeHrm.Steps.ButtonPage;
+import OrangeHrm.Steps.Conexion;
 import OrangeHrm.Steps.Questions;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;

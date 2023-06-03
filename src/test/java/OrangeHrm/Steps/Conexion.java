@@ -28,17 +28,9 @@ public class Conexion {
 
         driver.manage().timeouts().implicitlyWait(5, TimeUnit.SECONDS);
 
+
         return this.driver;
     }
 
-    @After
-    public void closeBrower() {
-        ChromeOptions option = new ChromeOptions();
-        option.addArguments("--remote-allow-origins=*");
-        WebDriverManager.chromedriver().setup();
-        driver = new ChromeDriver(option);
-        driver.close();
 
-
-    }
 }

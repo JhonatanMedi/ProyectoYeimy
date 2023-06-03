@@ -75,4 +75,8 @@ public class Questions {
         String toast = driver.findElement(By.xpath("//div[@id= 'oxd-toaster_1']//*[text()= 'Success' ]")).getText();
         Assert.assertEquals(toast, "Success");
     }
+
+    public void closeBrower() {
+        driver.close();
+    }
 }

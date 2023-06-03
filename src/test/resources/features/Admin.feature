@@ -11,7 +11,8 @@ Feature: Admin
     And the user select option admin and new user
     When the user fill out <employee> rol <rol> status <status> user <userName> password <pass> confirm <confirmPass>
     Then the user validate save information contact details
+    And the user close brower
 
     Examples:
       | user  | password | employee | rol | status  | userName | pass     | confirmPass |
-      | Admin | admin123 | Li       | ESS | Enabled | PruebaXX | Prueba01 | Prueba01    |
+      | Admin | admin123 | Li       | ESS | Enabled | Prueba1X | Prueba01 | Prueba01    |
